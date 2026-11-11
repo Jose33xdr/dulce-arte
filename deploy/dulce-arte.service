@@ -1,0 +1,18 @@
+[Unit]
+Description=Dulce Arte Django application
+After=network.target postgresql.service
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/opt/dulce-arte
+EnvironmentFile=/etc/dulce-arte.env
+RuntimeDirectory=dulce-arte
+RuntimeDirectoryMode=0750
+UMask=0007
+ExecStart=/opt/dulce-arte/.venv/bin/gunicorn --workers 2 --bind unix:/run/dulce-arte/gunicorn.sock config.wsgi:application
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

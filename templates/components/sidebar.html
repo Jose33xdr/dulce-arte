@@ -1,0 +1,25 @@
+<aside class="w-56 bg-white border-r border-stone-300 flex flex-col justify-between shrink-0 h-screen sticky top-0">
+    <div>
+        <div class="px-5 py-4 border-b border-stone-300">
+            <h1 class="text-lg font-bold text-stone-900">Dulce Arte</h1>
+            <p class="text-sm text-stone-600">Gestión de pastelería</p>
+        </div>
+
+        <nav class="p-3 space-y-1">
+            <a href="{% url 'dashboard:home' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'home' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Resumen</a>
+            <a href="{% url 'dashboard:clients' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'clients' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Clientes</a>
+            <a href="{% url 'dashboard:orders' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'orders' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Pedidos</a>
+            <a href="{% url 'dashboard:production' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'production' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Producción</a>
+            <a href="{% url 'dashboard:inventory' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'inventory' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Inventario</a>
+            <a href="{% url 'dashboard:recipes' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'recipes' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Recetas</a>
+            <a href="{% url 'dashboard:dispatch' %}" class="block px-3 py-2 text-sm {% if request.resolver_match.url_name == 'dispatch' %}bg-stone-100 font-semibold{% else %}text-stone-700 hover:bg-stone-100{% endif %}">Despachos</a>
+            {% if user.is_admin %}
+                <a href="{% url 'admin:index' %}" class="block px-3 py-2 text-sm text-stone-700 hover:bg-stone-100">Administración</a>
+            {% endif %}
+        </nav>
+    </div>
+
+    <div class="p-4 border-t border-stone-300 text-sm text-stone-600">
+        {{ request.user.get_role_display }}
+    </div>
+</aside>

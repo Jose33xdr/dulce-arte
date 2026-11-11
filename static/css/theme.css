@@ -1,0 +1,91 @@
+:root {
+    --color-bg-main: #f3f4f6;
+    --color-surface: #ffffff;
+    --color-primary: #773344;
+    --color-primary-hover: #5d2735;
+    --color-primary-light: #f5eaed;
+    --color-accent-pink: #f3d6db;
+    --color-success-bg: #dcebdd;
+    --color-success-text: #2d5a33;
+    --color-text-dark: #292524;
+    --color-text-muted: #78716c;
+    --color-border: #d6d3d1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg-main);
+    color: var(--color-text-dark);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+aside,
+header,
+main,
+section,
+article {
+    box-shadow: none !important;
+}
+
+*[class*="rounded-"]:not(.rounded-full) {
+    border-radius: 2px !important;
+}
+
+aside {
+    border-radius: 0 !important;
+}
+
+header {
+    position: static !important;
+}
+
+input,
+button,
+a {
+    font: inherit;
+}
+
+input:focus,
+button:focus,
+a:focus {
+    outline-color: var(--color-primary);
+}
+
+.badge-status {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid var(--color-border);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+}
+
+.badge-primary {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+@media (max-width: 700px) {
+    body {
+        display: block !important;
+    }
+
+    body > aside {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    body > div {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    main {
+        padding: 1rem !important;
+    }
+}

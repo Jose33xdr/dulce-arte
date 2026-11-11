@@ -1,0 +1,10 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div class="module">
+    <h2>Panel operativo</h2>
+    <p>Consulta los indicadores y el estado de los pedidos de Dulce Arte.</p>
+    <p><a href="{% url 'dashboard:home' %}">Abrir panel de control</a></p>
+</div>
+{{ block.super }}
+{% endblock %}

@@ -1,0 +1,7 @@
+<header class="h-14 bg-white border-b border-stone-300 px-5 flex items-center justify-between">
+    <h2 class="text-sm font-semibold text-stone-700">{{ request.user.get_full_name|default:request.user.username }}</h2>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="text-sm text-stone-700 hover:text-stone-900 underline">Cerrar sesión</button>
+    </form>
+</header>

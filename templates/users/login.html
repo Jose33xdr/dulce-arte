@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Iniciar sesión — Dulce Arte{% endblock %}
+
+{% block auth_content %}
+<section class="w-full max-w-sm bg-white border border-stone-300 p-6">
+    <h1 class="text-xl font-bold text-stone-900">Dulce Arte</h1>
+    <p class="mt-1 mb-5 text-sm text-stone-600">Iniciar sesión</p>
+
+    {% if form.errors %}
+        <p class="mb-4 text-sm text-red-700">Usuario o contraseña incorrectos.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="id_username" class="block mb-1 text-sm font-medium">Usuario</label>
+            <input type="text" name="username" id="id_username" required autofocus
+                   class="w-full px-3 py-2 border border-stone-400 text-sm">
+        </div>
+        <div>
+            <label for="id_password" class="block mb-1 text-sm font-medium">Contraseña</label>
+            <input type="password" name="password" id="id_password" required
+                   class="w-full px-3 py-2 border border-stone-400 text-sm">
+        </div>
+        <button type="submit" class="px-4 py-2 bg-[#773344] text-sm font-semibold text-white">
+            Ingresar
+        </button>
+    </form>
+</section>
+{% endblock %}
